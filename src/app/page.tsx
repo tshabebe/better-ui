@@ -94,6 +94,25 @@ export default function Home() {
       >
         hello
       </Button>
+      <Button
+        variant="red"
+        styles="outline"
+        className={
+          "text-red-text-primary border-none bg-none hover:bg-red hover:text-background"
+        }
+      >
+        hello
+      </Button>
+      <Button
+        variant="red"
+        styles="outline"
+        className={
+          "text-red-text-primary border-none bg-none hover:bg-red-elevation-1"
+        }
+      >
+        hello
+      </Button>
+      <Button className={'border-none p-0 text-red-text-primary hover:text-red-text-primary-hover'}>hello</Button>
     </div>
   );
 }
