@@ -4,6 +4,7 @@ import { Button } from "./button";
 import { AlertDialog } from "@/primitives/AlertDialog";
 import { DialogTrigger } from "react-aria-components";
 import { Autocomplete, AutocompleteItem } from "@/primitives/AutoComplete";
+import { Breadcrumb, Breadcrumbs } from "@/primitives/BreadCrumbs";
 
 export default function Home() {
   return (
@@ -11,10 +12,21 @@ export default function Home() {
       <ButtonVariation />
       <AlertDialogeExample />
       <AutoCompleteExample />
+      <BreadCrumbsExample />
     </div>
   );
 }
 
+function BreadCrumbsExample() {
+  return   <Breadcrumbs onAction={() => {
+    console.log("navigated")
+  } }>
+  <Breadcrumb href="/">Home</Breadcrumb>
+  <Breadcrumb href="/react-aria">React Aria</Breadcrumb>
+  <Breadcrumb>Breadcrumbs</Breadcrumb>
+</Breadcrumbs>
+
+}
 function AutoCompleteExample() {
   return (
     <Autocomplete
