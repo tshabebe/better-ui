@@ -3,24 +3,44 @@ import { Modal } from "@/primitives/Modal";
 import { Button } from "./button";
 import { AlertDialog } from "@/primitives/AlertDialog";
 import { DialogTrigger } from "react-aria-components";
+import { Autocomplete, AutocompleteItem } from "@/primitives/AutoComplete";
 
 export default function Home() {
   return (
     <div>
       <ButtonVariation />
       <AlertDialogeExample />
+      <AutoCompleteExample />
     </div>
   );
 }
 
+function AutoCompleteExample() {
+  return (
+    <Autocomplete
+      label="IceCream Flavour"
+      onInputChange={(input) => {
+        console.log(input);
+      }}
+    >
+      <AutocompleteItem>Chocolate</AutocompleteItem>
+      <AutocompleteItem id="mint">Mint</AutocompleteItem>
+      <AutocompleteItem>Strawberry</AutocompleteItem>
+      <AutocompleteItem>Vanilla</AutocompleteItem>
+      <AutocompleteItem>Cookies and Cream</AutocompleteItem>
+    </Autocomplete>
+  );
+}
 function AlertDialogeExample() {
   return (
     <DialogTrigger>
       <Button>Delete…</Button>
       <Modal>
         <AlertDialog
-          actionLabel="Delete"
-          onAction={function Ma() {}}
+          actionLabel="Delete something"
+          onAction={function Ma() {
+            console.log("deleted");
+          }}
           title="Delete folder"
           variant="info"
         >
@@ -31,6 +51,7 @@ function AlertDialogeExample() {
     </DialogTrigger>
   );
 }
+
 const StitchesButton = () => {
   return (
     <button className="group relative rounded-lg border-2 border-red-border bg-red px-5 py-1 font-medium text-white duration-1000 hover:shadow-lg hover:shadow-red-500/50">
