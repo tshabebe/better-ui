@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { Modal } from "@/primitives/Modal";
 import { Button } from "./button";
 import { AlertDialog } from "@/primitives/AlertDialog";
@@ -7,28 +7,29 @@ import { DialogTrigger } from "react-aria-components";
 export default function Home() {
   return (
     <div>
-    <ButtonVariation />
-    <AlertDialogeExample />
+      <ButtonVariation />
+      <AlertDialogeExample />
     </div>
   );
 }
 
 function AlertDialogeExample() {
-  return   <DialogTrigger>
-  <Button >Delete…</Button>
-  <Modal>
-    <AlertDialog 
+  return (
+    <DialogTrigger>
+      <Button>Delete…</Button>
+      <Modal>
+        <AlertDialog
           actionLabel="Delete"
-          onAction={function Ma(){}}
+          onAction={function Ma() {}}
           title="Delete folder"
           variant="info"
-     >
-      Are you sure you want to delete &quot;Documents&quot;? All contents will be permanently destroyed.
-     </AlertDialog>
-  </Modal>
-</DialogTrigger>
-
-
+        >
+          Are you sure you want to delete &quot;Documents&quot;? All contents
+          will be permanently destroyed.
+        </AlertDialog>
+      </Modal>
+    </DialogTrigger>
+  );
 }
 const StitchesButton = () => {
   return (
@@ -40,9 +41,9 @@ const StitchesButton = () => {
   );
 };
 
-
 function ButtonVariation() {
-  return <div className=" flex wrap gap-2 p-2">
+  return (
+    <div className=" flex wrap gap-2 p-2">
       <Button
         variant="red"
         elevation="elevation-1"
@@ -161,4 +162,5 @@ function ButtonVariation() {
       </Button>
       <StitchesButton />
     </div>
+  );
 }
