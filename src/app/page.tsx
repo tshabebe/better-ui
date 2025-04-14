@@ -10,7 +10,7 @@ import { CheckboxGroup } from "@/primitives/CheckBox";
 
 export default function Home() {
   return (
-    <div>
+    <div className="flex flex-wrap">
       <ButtonVariation />
       <AlertDialogeExample />
       <AutoCompleteExample />
