@@ -2,10 +2,11 @@
 import { Modal } from "@/primitives/Modal";
 import { Button } from "./button";
 import { AlertDialog } from "@/primitives/AlertDialog";
-import { DialogTrigger } from "react-aria-components";
+import { Checkbox, DialogTrigger } from "react-aria-components";
 import { Autocomplete, AutocompleteItem } from "@/primitives/AutoComplete";
 import { Breadcrumb, Breadcrumbs } from "@/primitives/BreadCrumbs";
 import { Calendar } from "@/primitives/Calender";
+import { CheckboxGroup } from "@/primitives/CheckBox";
 
 export default function Home() {
   return (
@@ -15,10 +16,40 @@ export default function Home() {
       <AutoCompleteExample />
       <BreadCrumbsExample />
       <CalenderExample />
+      <CheckBoxExample />
+      <CheckBOxGroupExample />
     </div>
   );
 }
-
+function CheckBOxGroupExample() {
+  return <CheckboxGroup
+  label="Cities"
+>
+  <>
+    <Checkbox value="sf">
+      San Francisco
+    </Checkbox>
+    <Checkbox value="ny">
+      New York
+    </Checkbox>
+    <Checkbox value="sydney">
+      Sydney
+    </Checkbox>
+    <Checkbox value="london">
+      London
+    </Checkbox>
+    <Checkbox value="tokyo">
+      Tokyo
+    </Checkbox>
+  </>
+</CheckboxGroup>
+}
+function CheckBoxExample() {
+  return <Checkbox
+>
+  Checkbox
+</Checkbox>
+}
 function CalenderExample() {
   return <Calendar
   aria-label="Event date"
