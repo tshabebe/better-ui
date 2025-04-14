@@ -7,6 +7,7 @@ import { Autocomplete, AutocompleteItem } from "@/primitives/AutoComplete";
 import { Breadcrumb, Breadcrumbs } from "@/primitives/BreadCrumbs";
 import { Calendar } from "@/primitives/Calender";
 import { Checkbox, CheckboxGroup } from "@/primitives/CheckBox";
+import { ComboBox, ComboBoxItem } from "@/primitives/ComboBox";
 
 export default function Home() {
   return (
@@ -18,8 +19,26 @@ export default function Home() {
       <CalenderExample />
       <CheckBoxExample />
       <CheckBOxGroupExample />
+      <ComboBoxExample />
     </div>
   );
+}
+function ComboBoxExample() {
+  return <ComboBox
+>
+  <ComboBoxItem>
+    Chocolate
+  </ComboBoxItem>
+  <ComboBoxItem id="mint">
+    Mint
+  </ComboBoxItem>
+  <ComboBoxItem>
+    Strawberry
+  </ComboBoxItem>
+  <ComboBoxItem>
+    Vanilla
+  </ComboBoxItem>
+</ComboBox>
 }
 function CheckBOxGroupExample() {
   return <CheckboxGroup
