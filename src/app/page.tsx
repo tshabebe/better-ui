@@ -2,7 +2,7 @@
 import { Modal } from "@/primitives/Modal";
 import { Button } from "./button";
 import { AlertDialog } from "@/primitives/AlertDialog";
-import { DialogTrigger, DisclosurePanel, MenuTrigger } from "react-aria-components";
+import { DialogTrigger, DisclosurePanel, Heading, MenuTrigger } from "react-aria-components";
 import { Autocomplete, AutocompleteItem } from "@/primitives/AutoComplete";
 import { Breadcrumb, Breadcrumbs } from "@/primitives/BreadCrumbs";
 import { Calendar } from "@/primitives/Calendar";
@@ -19,10 +19,13 @@ import {
 import { GridList, GridListItem } from "@/primitives/GridList";
 import { Link } from "@/primitives/Link";
 import { ListBox, ListBoxItem } from "@/primitives/ListBox";
-import { MoreHorizontal } from "lucide-react";
+import { HelpCircle, MoreHorizontal } from "lucide-react";
 import { Menu, MenuItem, MenuSeparator } from "@/primitives/Menu";
 import { Meter } from "@/primitives/Meter";
 import { NumberField } from "@/primitives/NumberField";
+import { Popover } from "@/primitives/Popover";
+import { Dialog } from "@/primitives/Dialog";
+import { ProgressBar } from "@/primitives/ProgressBar";
 
 export default function Home() {
   return (
@@ -46,8 +49,28 @@ export default function Home() {
       <MenuExample />
       <MeterExample />
       <NumberFieldExaple />
+      <PopoverExample />
+      <ProgressBarExample />
     </div>
   );
+}
+function ProgressBarExample() {
+  return <ProgressBar
+  label="Loading…"
+  value={80}
+/>
+}
+function PopoverExample() {
+  return   <DialogTrigger>
+  <Button aria-label="Help"><HelpCircle className="w-4 h-4" /></Button>
+  <Popover className="max-w-[250px]">
+    <Dialog>
+      <Heading slot="title" className="text-lg font-semibold mb-2">Help</Heading>
+      <p className="text-sm">For help accessing your account, please contact support.</p>
+    </Dialog>
+  </Popover>
+</DialogTrigger>
+
 }
 function MeterExample() {
   return <Meter label="Storage Space" value={89} />
