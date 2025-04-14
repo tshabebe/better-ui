@@ -5,12 +5,12 @@ import {
   ButtonProps as RACButtonProps,
 } from "react-aria-components";
 import { tv } from "tailwind-variants";
-import { focusRing } from "./utils";
+import { focusRing } from "../primitives/utils";
 
 export interface ButtonProps extends RACButtonProps {
   variant?: "orange" | "yellow" | "green" | "red";
   elevation?: "elevation-1" | "elevation-2" | "elevation-3" | "elevation-4";
-  styles?: "soft" | "solid" | "outline";
+  styles?: "soft" | "solid" | "outline" | "surface";
 }
 
 const button = tv({
@@ -33,6 +33,7 @@ const button = tv({
       soft: "",
       solid: "",
       outline: "",
+      surface: ""
     },
     size: {
       icon: "flex items-center justify-center border-0 p-1 text-gray-600 hover:bg-black/[5%] pressed:bg-black/10 disabled:bg-transparent dark:text-zinc-400 dark:hover:bg-white/10 dark:pressed:bg-white/20",
