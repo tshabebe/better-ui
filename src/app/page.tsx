@@ -2,11 +2,11 @@
 import { Modal } from "@/primitives/Modal";
 import { Button } from "./button";
 import { AlertDialog } from "@/primitives/AlertDialog";
-import { Checkbox, DialogTrigger } from "react-aria-components";
+import { DialogTrigger } from "react-aria-components";
 import { Autocomplete, AutocompleteItem } from "@/primitives/AutoComplete";
 import { Breadcrumb, Breadcrumbs } from "@/primitives/BreadCrumbs";
 import { Calendar } from "@/primitives/Calender";
-import { CheckboxGroup } from "@/primitives/CheckBox";
+import { Checkbox, CheckboxGroup } from "@/primitives/CheckBox";
 
 export default function Home() {
   return (
