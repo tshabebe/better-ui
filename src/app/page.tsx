@@ -5,6 +5,7 @@ import { AlertDialog } from "@/primitives/AlertDialog";
 import { DialogTrigger } from "react-aria-components";
 import { Autocomplete, AutocompleteItem } from "@/primitives/AutoComplete";
 import { Breadcrumb, Breadcrumbs } from "@/primitives/BreadCrumbs";
+import { Calendar } from "@/primitives/Calender";
 
 export default function Home() {
   return (
@@ -13,8 +14,17 @@ export default function Home() {
       <AlertDialogeExample />
       <AutoCompleteExample />
       <BreadCrumbsExample />
+      <CalenderExample />
     </div>
   );
+}
+
+function CalenderExample() {
+  return <Calendar
+  aria-label="Event date"
+  onChange={function Ma(){}}
+  onFocusChange={function Ma(){}}
+/>
 }
 
 function BreadCrumbsExample() {
