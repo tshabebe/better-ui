@@ -2,7 +2,16 @@
 import { Modal } from "@/primitives/Modal";
 import { Button } from "./button";
 import { AlertDialog } from "@/primitives/AlertDialog";
-import { DialogTrigger, DisclosurePanel, Heading, MenuTrigger } from "react-aria-components";
+import {
+  DialogTrigger,
+  DisclosurePanel,
+  Form,
+  Group,
+  Heading,
+  MenuTrigger,
+  ToggleButtonGroup,
+  TooltipTrigger,
+} from "react-aria-components";
 import { Autocomplete, AutocompleteItem } from "@/primitives/AutoComplete";
 import { Breadcrumb, Breadcrumbs } from "@/primitives/BreadCrumbs";
 import { Calendar } from "@/primitives/Calendar";
@@ -19,17 +28,43 @@ import {
 import { GridList, GridListItem } from "@/primitives/GridList";
 import { Link } from "@/primitives/Link";
 import { ListBox, ListBoxItem } from "@/primitives/ListBox";
-import { HelpCircle, MoreHorizontal } from "lucide-react";
+import {
+  Bold,
+  BoldIcon,
+  HelpCircle,
+  Italic,
+  ItalicIcon,
+  MoreHorizontal,
+  PrinterIcon,
+  SaveIcon,
+  Underline,
+  UnderlineIcon,
+} from "lucide-react";
 import { Menu, MenuItem, MenuSeparator } from "@/primitives/Menu";
 import { Meter } from "@/primitives/Meter";
 import { NumberField } from "@/primitives/NumberField";
 import { Popover } from "@/primitives/Popover";
 import { Dialog } from "@/primitives/Dialog";
 import { ProgressBar } from "@/primitives/ProgressBar";
+import { Radio, RadioGroup } from "@/primitives/RadioGroup";
+import { RangeCalendar } from "@/primitives/RangeCalendar";
+import { SearchField } from "@/primitives/SearchField";
+import { Select, SelectItem } from "@/primitives/Select";
+import { Slider } from "@/primitives/Slider";
+import { Switch } from "@/primitives/Switch";
+import { Separator } from "@/primitives/Separator";
+import { Tab, TabList, TabPanel, Tabs } from "@/primitives/Tabs";
+import { Tag, TagGroup } from "@/primitives/TagGroup";
+import { TextField } from "@/primitives/TextField";
+import { TimeField } from "@/primitives/TimeField";
+import { ToggleButton } from "@/primitives/ToggleButton";
+import { Toolbar } from "@/primitives/Toolbar";
+import { Tooltip } from "@/primitives/ToolTip";
+import { Tree, TreeItem, TreeItemContent } from "@/primitives/Tree";
 
 export default function Home() {
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap items-start gap-2">
       <ButtonVariation />
       <AlertDialogeExample />
       <AutoCompleteExample />
@@ -51,71 +86,251 @@ export default function Home() {
       <NumberFieldExaple />
       <PopoverExample />
       <ProgressBarExample />
+      <RadioGroupExample />
+      <RangeCalendarExample />
+      <SearchFieldExample />
+      <SelectExample />
+      <SliderExample />
+      <SwitchExample />
+      <SepartorExample />
+      <TabsExample />
+      <TagGroupExample />
+      <TextFieldExample />
+      <TimeFieldExample />
+      <ToggleButtonExample />
+      <ToggleButtonGroupExample />
+      <ToolBarExample />
+      <ToolTipExample />
+      <TreeExample />
     </div>
   );
 }
+function TreeExample() {
+  return (
+    <Tree
+      aria-label="Files"
+      defaultExpandedKeys={["documents", "photos", "project"]}
+      defaultSelectedKeys={["project"]}
+      selectionMode="multiple"
+      style={{
+        height: "400px",
+        width: "300px",
+      }}
+    >
+      <TreeItem id="documents" textValue="Documents">
+        <TreeItemContent>Documents</TreeItemContent>
+        <TreeItem id="project" textValue="Project">
+          <TreeItemContent>Project</TreeItemContent>
+          <TreeItem id="report" textValue="Weekly Report">
+            <TreeItemContent>Weekly Report</TreeItemContent>
+          </TreeItem>
+        </TreeItem>
+      </TreeItem>
+      <TreeItem id="photos" textValue="Photos">
+        <TreeItemContent>Photos</TreeItemContent>
+        <TreeItem id="one" textValue="Image 1">
+          <TreeItemContent>Image 1</TreeItemContent>
+        </TreeItem>
+        <TreeItem id="two" textValue="Image 2">
+          <TreeItemContent>Image 2</TreeItemContent>
+        </TreeItem>
+      </TreeItem>
+    </Tree>
+  );
+}
+function ToolTipExample() {
+  return (
+    <div className="flex gap-2">
+      <TooltipTrigger>
+        <Button className="px-2">
+          <SaveIcon className="w-5 h-5" />
+        </Button>
+        <Tooltip>Save</Tooltip>
+      </TooltipTrigger>
+      <TooltipTrigger>
+        <Button className="px-2">
+          <PrinterIcon className="w-5 h-5" />
+        </Button>
+        <Tooltip>Print</Tooltip>
+      </TooltipTrigger>
+    </div>
+  );
+}
+function ToolBarExample() {
+  return (
+    <Toolbar aria-label="Text formatting">
+      <Group aria-label="Style" className="contents">
+        <ToggleButton aria-label="Bold" className="p-2.5">
+          <BoldIcon className="w-4 h-4" />
+        </ToggleButton>
+        <ToggleButton aria-label="Italic" className="p-2.5">
+          <ItalicIcon className="w-4 h-4" />
+        </ToggleButton>
+        <ToggleButton aria-label="Underline" className="p-2.5">
+          <UnderlineIcon className="w-4 h-4" />
+        </ToggleButton>
+      </Group>
+      <Separator orientation="vertical" />
+      <Group aria-label="Clipboard" className="contents">
+        <Button>Copy</Button>
+        <Button>Paste</Button>
+        <Button>Cut</Button>
+      </Group>
+      <Separator orientation="vertical" />
+      <Checkbox>Night Mode</Checkbox>
+    </Toolbar>
+  );
+}
+function ToggleButtonExample() {
+  return <ToggleButton>Pin</ToggleButton>;
+}
+function ToggleButtonGroupExample() {
+  return (
+    <ToggleButtonGroup
+      onSelectionChange={function Ma() {}}
+      selectionMode="multiple"
+    >
+      <ToggleButton aria-label="Bold" id="bold">
+        <Bold className="w-4 h-4" />
+      </ToggleButton>
+      <ToggleButton aria-label="Italic" id="italic">
+        <Italic className="w-4 h-4" />
+      </ToggleButton>
+      <ToggleButton aria-label="Underline" id="underline">
+        <Underline className="w-4 h-4" />
+      </ToggleButton>
+    </ToggleButtonGroup>
+  );
+}
+function TimeFieldExample() {
+  return <TimeField label="Event time" />;
+}
+function TextFieldExample() {
+  return (
+    <Form className="flex flex-col gap-2 items-start">
+      <TextField isRequired label="Name" />
+      <Button type="submit">Submit</Button>
+    </Form>
+  );
+}
+function TagGroupExample() {
+  return (
+    <TagGroup label="Ice cream flavor" selectionMode="single">
+      <Tag>Chocolate</Tag>
+      <Tag isDisabled>Mint</Tag>
+      <Tag>Strawberry</Tag>
+      <Tag>Vanilla</Tag>
+    </TagGroup>
+  );
+}
+function TabsExample() {
+  return (
+    <Tabs>
+      <TabList aria-label="History of Ancient Rome">
+        <Tab id="FoR">Founding of Rome</Tab>
+        <Tab id="MaR">Monarchy and Republic</Tab>
+        <Tab id="Emp">Empire</Tab>
+      </TabList>
+      <TabPanel id="FoR">
+        Arma virumque cano, Troiae qui primus ab oris.
+      </TabPanel>
+      <TabPanel id="MaR">Senatus Populusque Romanus.</TabPanel>
+      <TabPanel id="Emp">Alea jacta est.</TabPanel>
+    </Tabs>
+  );
+}
+function SepartorExample() {
+  return <Separator orientation="vertical" />;
+}
+function SwitchExample() {
+  return <Switch>Wi-Fi</Switch>;
+}
+function SliderExample() {
+  return <Slider defaultValue={[30, 60]} label="Range" />;
+}
+function SelectExample() {
+  return (
+    <Select label="Ice cream flavor">
+      <SelectItem>Chocolate</SelectItem>
+      <SelectItem id="mint">Mint</SelectItem>
+      <SelectItem>Strawberry</SelectItem>
+      <SelectItem>Vanilla</SelectItem>
+    </Select>
+  );
+}
+function RadioGroupExample() {
+  return (
+    <RadioGroup description="" label="Favorite sport">
+      <Radio value="soccer">Soccer</Radio>
+      <Radio value="baseball">Baseball</Radio>
+      <Radio value="basketball">Basketball</Radio>
+    </RadioGroup>
+  );
+}
+function SearchFieldExample() {
+  return <SearchField label="Search" />;
+}
+function RangeCalendarExample() {
+  return <RangeCalendar aria-label="Trip dates" />;
+}
 function ProgressBarExample() {
-  return <ProgressBar
-  label="Loading…"
-  value={80}
-/>
+  return <ProgressBar label="Loading…" value={80} />;
 }
 function PopoverExample() {
-  return   <DialogTrigger>
-  <Button aria-label="Help"><HelpCircle className="w-4 h-4" /></Button>
-  <Popover className="max-w-[250px]">
-    <Dialog>
-      <Heading slot="title" className="text-lg font-semibold mb-2">Help</Heading>
-      <p className="text-sm">For help accessing your account, please contact support.</p>
-    </Dialog>
-  </Popover>
-</DialogTrigger>
-
+  return (
+    <DialogTrigger>
+      <Button aria-label="Help">
+        <HelpCircle className="w-4 h-4" />
+      </Button>
+      <Popover className="max-w-[250px]">
+        <Dialog>
+          <Heading slot="title" className="text-lg font-semibold mb-2">
+            Help
+          </Heading>
+          <p className="text-sm">
+            For help accessing your account, please contact support.
+          </p>
+        </Dialog>
+      </Popover>
+    </DialogTrigger>
+  );
 }
 function MeterExample() {
-  return <Meter label="Storage Space" value={89} />
+  return <Meter label="Storage Space" value={89} />;
 }
 function MenuExample() {
-  return   <MenuTrigger>
-  <Button className="px-2">
-    <MoreHorizontal className="w-5 h-5" />
-  </Button>
-  <Menu>
-    <MenuItem id="new">New…</MenuItem>
-    <MenuItem id="open">Open…</MenuItem>
-    <MenuSeparator />
-    <MenuItem id="save">Save</MenuItem>
-    <MenuItem id="saveAs">Save as…</MenuItem>
-    <MenuSeparator />
-    <MenuItem id="print">Print…</MenuItem>
-  </Menu>
-</MenuTrigger>
-
+  return (
+    <MenuTrigger>
+      <Button className="px-2">
+        <MoreHorizontal className="w-5 h-5" />
+      </Button>
+      <Menu>
+        <MenuItem id="new">New…</MenuItem>
+        <MenuItem id="open">Open…</MenuItem>
+        <MenuSeparator />
+        <MenuItem id="save">Save</MenuItem>
+        <MenuItem id="saveAs">Save as…</MenuItem>
+        <MenuSeparator />
+        <MenuItem id="print">Print…</MenuItem>
+      </Menu>
+    </MenuTrigger>
+  );
 }
 function LinkExample() {
-  return <Link href="#"> the missing link</Link>
+  return <Link href="#"> the missing link</Link>;
 }
 function ListBoxExample() {
-  return <ListBox
-  aria-label="Ice cream flavor"
-  selectionMode="multiple"
->
-  <ListBoxItem id="chocolate">
-    Chocolate
-  </ListBoxItem>
-  <ListBoxItem id="mint">
-    Mint
-  </ListBoxItem>
-  <ListBoxItem id="strawberry">
-    Strawberry
-  </ListBoxItem>
-  <ListBoxItem id="vanilla">
-    Vanilla
-  </ListBoxItem>
-</ListBox>
+  return (
+    <ListBox aria-label="Ice cream flavor" selectionMode="multiple">
+      <ListBoxItem id="chocolate">Chocolate</ListBoxItem>
+      <ListBoxItem id="mint">Mint</ListBoxItem>
+      <ListBoxItem id="strawberry">Strawberry</ListBoxItem>
+      <ListBoxItem id="vanilla">Vanilla</ListBoxItem>
+    </ListBox>
+  );
 }
 function NumberFieldExaple() {
-  return <NumberField label="Cookies"/>
+  return <NumberField label="Cookies" />;
 }
 function GridListExample() {
   return (
