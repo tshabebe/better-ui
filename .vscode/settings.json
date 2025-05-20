@@ -1,8 +1,10 @@
 {
-    "files.associations": {
-        "*.css": "tailwindcss"
-    },
-    "tailwindCSS.experimental.classRegex": [
-		["([\"'`][^\"'`]*.*?[\"'`])", "[\"'`]([^\"'`]*).*?[\"'`]"]
-	],
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["([\"'`][^\"'`]*.*?[\"'`])", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["className=\\{['\"]([^'\"]*)['\"]\\}", 1],
+    ["classname=['\"]([^'\"]*)['\"]", 1]
+  ]
 }
