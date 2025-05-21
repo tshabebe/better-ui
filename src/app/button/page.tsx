@@ -1,5 +1,11 @@
-import { ArrowLeftIcon, Trash2Icon } from 'lucide-react'
+import {
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  MailIcon,
+  Trash2Icon,
+} from 'lucide-react'
 import { Button } from '../primitives/button'
+import { ButtonWithStates } from './client.button'
 
 // make sure each components are responsive
 export default function ButtonPage() {
@@ -20,6 +26,18 @@ export default function ButtonPage() {
         <div className="flex flex-col items-center gap-4">
           <ButtonWithIconArrowLeftMoving />
           <p>Button with arrow moving</p>
+        </div>
+        <div className="flex flex-col items-center gap-4">
+          <ButtonWithArrowRightMovingWithMail />
+          <p>arrow moving and mail</p>
+        </div>
+        <div className="flex flex-col items-center gap-4">
+          <ButtonWithAutomaticSvgStyling />
+          <p>Automatic Svg Styling</p>
+        </div>
+        <div className="flex flex-col items-center gap-4">
+          <ButtonWithStates />
+          <p>With States</p>
         </div>
       </div>
     </div>
@@ -76,6 +94,37 @@ function ButtonWithIconArrowLeftMoving() {
         aria-hidden
       />
       <span>Button</span>
+    </Button>
+  )
+}
+
+function ButtonWithArrowRightMovingWithMail() {
+  return (
+    <Button
+      className={
+        'px-2 group py-1 bg-gray-elevation-1 border rounded-4xl hover:bg-gray-elevation-2 flex gap-2 items-center'
+      }
+    >
+      <MailIcon className="opacity-60" size={16} aria-hidden="true" />
+      <span>Button</span>
+      <ArrowRightIcon
+        className="w-4 h-4 transition-transform group-hover:translate-x-0.5"
+        aria-hidden
+      />
+    </Button>
+  )
+}
+
+function ButtonWithAutomaticSvgStyling() {
+  return (
+    <Button
+      className={
+        'px-2 group py-1 bg-gray-elevation-1 border rounded-4xl hover:bg-gray-elevation-2 flex gap-2 items-center [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0'
+      }
+    >
+      <MailIcon className="opacity-60" aria-hidden />
+      <span>Button</span>
+      <Trash2Icon aria-hidden />
     </Button>
   )
 }
